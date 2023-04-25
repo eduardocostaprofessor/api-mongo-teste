@@ -13,13 +13,12 @@ require('dotenv/config')
 mongoose.connect(
     'mongodb://localhost:27017/api-mongo-teste', 
     // process.env.MONGO_URL,
-    {useNewUrlParser: true} 
+    {useNewUrlParser: true, useUnifiedTopology: true} 
 )
 // models
 requireDir('./src/models');
 //Rotas
 app.use('/api', require('./src/routes'))
-
 
 app.listen( process.env.PORT || 3002 )
 
